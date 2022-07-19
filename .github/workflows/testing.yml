@@ -1,0 +1,50 @@
+name : Django Tests
+
+on:
+  push:
+    branches: [ master ]
+
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Linting with Flake8
+        run: |
+          pip install flake8
+          flake8
+      # - name: Install firefox and geckodriver
+      #   run: |
+      #     chmod +x ./scripts/InstallFirefox.sh
+      #     ./scripts/InstallFirefox.sh
+      - name: Coverage report
+        run: |
+          pip install coverage
+          coverage run manage.py test
+          coverage report
+      - name: Unit Testing(blog)
+        run: |
+          python3 manage.py test blog
+      - name: Unit Testing(page)
+        run: |
+          python3 manage.py test page
+      # - name: Funtional Testing
+      #   run: |
+      #     python3 manage.py test functional_tests
+
+    
+    
