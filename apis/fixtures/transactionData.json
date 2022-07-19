@@ -1,6 +1,6 @@
 [
     {
-      "model": "apis.NotificationModel",
+      "model": "apis.TransactionModel",
       "pk": 1,
       "fields": {
         "transactionId": "62D6A3A748BF2C9176A71514",
@@ -14,7 +14,7 @@
       }
     },
     {
-      "model": "apis.NotificationModel",
+      "model": "apis.TransactionModel",
       "pk": 2,
       "fields": {
         "transactionId": "62D6A2A7398827FBC5772D0C",
@@ -28,7 +28,7 @@
       }
     },
     {
-      "model": "apis.NotificationModel",
+      "model": "apis.TransactionModel",
       "pk": 3,
       "fields": {
         "transactionId": "62D6A3A754EA3358E7EBA05F",
@@ -42,7 +42,7 @@
       }
     },
     {
-      "model": "apis.NotificationModel",
+      "model": "apis.TransactionModel",
       "pk": 4,
       "fields": {
         "transactionId": "62D6A3A74D1ED6F88E40FAD2",
@@ -56,7 +56,7 @@
       }
     },
     {
-      "model": "apis.NotificationModel",
+      "model": "apis.TransactionModel",
       "pk": 5,
       "fields": {
         "transactionId": "62D6A3A76491F3A779DD199E",
@@ -70,7 +70,7 @@
       }
     },
     {
-      "model": "apis.NotificationModel",
+      "model": "apis.TransactionModel",
       "pk": 6,
       "fields": {
         "transactionId": "62D6A3A7A7495E90B8F28859",
@@ -84,7 +84,7 @@
       }
     },
     {
-      "model": "apis.NotificationModel",
+      "model": "apis.TransactionModel",
       "pk": 7,
       "fields": {
         "transactionId": "62D6A3A725BAB556EDE94687",
@@ -98,7 +98,7 @@
       }
     },
     {
-      "model": "apis.NotificationModel",
+      "model": "apis.TransactionModel",
       "pk": 8,
       "fields": {
         "transactionId": "62D6A3A7BB9B702889B95826",
@@ -112,7 +112,7 @@
       }
     },
     {
-      "model": "apis.NotificationModel",
+      "model": "apis.TransactionModel",
       "pk": 9,
       "fields": {
         "transactionId": "62D6A3A720D1031636985F56",
@@ -126,7 +126,7 @@
       }
     },
     {
-      "model": "apis.NotificationModel",
+      "model": "apis.TransactionModel",
       "pk": 10,
       "fields": {
         "transactionId": "62D6A3A7531CF8D688669D14",
