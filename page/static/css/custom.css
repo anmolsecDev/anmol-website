@@ -1,0 +1,79 @@
+body {
+  font-family: "Roboto";
+}
+.roboto{
+
+  font-family: "Roboto";
+}
+.text-condensed-rob {
+  font-family: "Roboto Condensed", sans-serif;
+}
+.bg-blue {
+  background-color: #1c5982;
+}
+.bg-orange {
+  /* background-color: red; */
+  background-color: #ea7826;
+}
+.bg-lt-blue {
+  background-color: #5dbeff;
+}
+.bg-gray {
+  background-color: #aeaeae;
+}
+.bg-white {
+  background-color: white;
+}
+.bg-dark-gray {
+  background-color: #d8d8d8;
+}
+.bord-orange {
+  border-color: #ea7826;
+}
+.bord-lt-blue {
+  border-color: #5dbeff;
+}
+.txt-blue {
+  color: #1c5982;
+}
+.txt-lt-blue {
+  color: #5dbeff;
+}
+.txt-orange {
+  color: #ea7826;
+}
+.txt-gray {
+  color: #aeaeae;
+}
+.txt-dark-gray {
+  color: #878787;
+}
+.blog-back{
+  background-color: #ececec;
+}
+.sq_img {
+  height: 120px;
+  width: 120px;
+}
+.divider {
+  border-top: 1.5px solid rgb(182, 182, 182);
+  width: 80%;
+}
+.spaced-well {
+  letter-spacing: 3px;
+}
+.bg-pattern {
+  background-image: url("/static/images/pattern.png");
+  background-color: rgba(93, 190, 255, 0.13);
+}
+input::placeholder {
+  text-align: center;
+}
+
+textarea::placeholder {
+  text-align: center;
+}
+.dec-line-space{
+  line-height: 20px;
+  font-size: 0.8rem;
+}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block title %}About Us{% endblock title %}
+{% block body %}
+{% load static %}
+<div class="text-center d-none d-lg-block">
+  <img class = "img-fluid"src="{% static 'images/team.png'%}" alt="">
+</div>
+<div class="text-center d-lg-none d-xs-block d-sm-block">
+  <img class = "img-fluid" style="width: 30rem;" src="{% static 'images/team.png'%}" alt="">
+</div>
+<div class="bg-pattern">
+<div class="container ">
+    <div class="row">
+        <div class="col-md-4 text-center mb-5">
+            <div class="card mx-auto" style="width: 19rem;">
+                <img class="card-img-top" src="{% static 'images/aaditya.png' %}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Aaditya Rimal</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4  text-center mb-5">
+            <div class="card mx-auto " style="width: 19rem;">
+                <img class="card-img-top" src="{% static 'images/archana.png' %}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Archana Rimal</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="card mx-auto" style="width: 19rem;">
+                <img class="card-img-top" src="{% static 'images/hemsagar.png' %}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Hem Sagar Rimal Rimal</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock body%}
