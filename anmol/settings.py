@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-fllx67jztobpywd^m6cv)92sw=@$d0p#5x@xgve!&y-*c(=c-)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["anmolsec.com","*"]
+ALLOWED_HOSTS = ["anmolsec.com", "*"]
 
 
 # Application definition
@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     "page",
     "apis",
     "events",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -138,6 +140,7 @@ FIXTURE_DIRS = [
 CSRF_COOKIR_SECURE = True
 
 CORS_ALLOWED_ORIGINS = [
+    "https://anmolsec.com",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
