@@ -60,4 +60,4 @@ class TransactionModel(models.Model):
     mode = models.CharField(default="", max_length=10)  # credit or debit
 
     def __str__(self):
-        return str(self.transactionid)
+        return str(self.transactionId)

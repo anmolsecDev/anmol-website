@@ -50,4 +50,4 @@ def getEvent(request):
             event_serializer = EventSerializers(events, many=True)
             return JsonResponse(event_serializer.data, safe=False)
         else:
-            return JsonResponse(data=[], status=status.HTTP_200_OK)
+            return JsonResponse(data={}, status=status.HTTP_200_OK)
