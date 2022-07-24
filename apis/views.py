@@ -12,6 +12,7 @@ from apis.models import NotificationModel
 from apis.serializers import NotificationSerializers
 
 from rest_framework.decorators import api_view
+import nepali_datetime
 
 
 @api_view(["GET", "POST"])
@@ -177,5 +178,35 @@ def transaction_detail(request, transactionId):
 
 
 @api_view(["GET"])
-def fee_status():
-    return JsonResponse(data={"status": "paid"})
+def fee_status(request, studentId):
+
+    months = {
+        "Baisakh": 1,
+        "Jestha": 2,
+        "Ashar": 3,
+        "Shrawan": 4,
+        "Bhadra": 5,
+        "Ashoj": 6,
+        "Kartik": 7,
+        "Mangsir": 8,
+        "Paush": 9,
+        "Magh": 10,
+        "Falgun": 11,
+        "Chaitra": 12,
+    }
+
+    if studentId is not None:
+        notifications = NotificationModel.objects.all()
+        notifications = notifications.filter(studentId__icontains=studentId)
+        current_year = nepali_datetime.datetime.now().year
+        current_month = nepali_datetime.datetime.now().month
+        notifications = notifications.filter(year__icontains=current_year)
+        if (len(notifications)) != 0:
+            latest = max([months[i.month] for i in notifications])
+            if latest == current_month:
+                return JsonResponse(data={"status": "paid"})
+        return JsonResponse(data={"status": "unpaid"})
+    else:
+        return JsonResponse(
+            {"message": "StudentId not valid"}, status=status.HTTP_404_NOT_FOUND
+        )
