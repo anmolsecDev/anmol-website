@@ -44,7 +44,7 @@ class NotificationModel(models.Model):
     note = models.CharField(default="", max_length=200, blank=True)
     tuition = models.IntegerField(default=0)
     snacks = models.IntegerField(default=0)
-    paid = models.CharField(default="", max_length=10)
+    paid = models.CharField(default="Unpaid", max_length=10)
 
     def __str__(self):
         return str(self.notificationId)
@@ -58,7 +58,7 @@ class TransactionModel(models.Model):
     payer = models.CharField(default="", max_length=50)
     note = models.CharField(default="", max_length=200)
     amount = models.IntegerField(default=0)
-    paid = models.CharField(default="", max_length=10)
+    paid = models.CharField(default="Unpaid", max_length=10)
 
     def __str__(self):
         return str(self.transactionId)
