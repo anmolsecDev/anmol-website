@@ -144,3 +144,16 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
+
+# REST_FRAMEWORK = {
+#     "DEFAULT_AUTHENTICATION_CLASSES": (
+#         "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+#         "rest_framework.authentication.SessionAuthentication",  # To keep the Browsable API
+#     ),
+#     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+# }
+
+# AUTHENTICATION_BACKENDS = (
+#     "django.contrib.auth.backends.ModelBackend"  # To keep the Browsable API
+#     "oauth2_provider.backends.OAuth2Backend",
+# )

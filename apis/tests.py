@@ -254,6 +254,7 @@ class NewNotificationTest(TestCase):
                 "paid": "Cash",
                 "amount": 14000,
                 "month": "Ashar",
+                "year": "2079",
                 "speechTherapy": 0,
                 "therapy": 4000,
                 "transportation": 800,
@@ -282,6 +283,7 @@ class NewNotificationTest(TestCase):
                 "paid": "Cash",
                 "amount": 14000,
                 "month": "Ashar",
+                "year": "2079",
                 "speechTherapy": 0,
                 "therapy": 4000,
                 "transportation": 800,
@@ -312,6 +314,7 @@ class NewNotificationTest(TestCase):
                 "date": "2022/2/27",
                 "amount": 14000,
                 "month": "Jestha",
+                "year": "2079",
                 "speechTherapy": 0,
                 "therapy": 4000,
                 "transportation": 800,
@@ -336,6 +339,7 @@ class NewNotificationTest(TestCase):
                 "paid": "Cash",
                 "amount": 12000,
                 "month": "Ashar",
+                "year": "2079",
                 "speechTherapy": 0,
                 "therapy": 4000,
                 "transportation": 800,
@@ -374,6 +378,7 @@ class NewNotificationTest(TestCase):
                 "paid": "Cash",
                 "amount": 14000,
                 "month": "Ashar",
+                "year": "2079",
                 "speechTherapy": 0,
                 "therapy": 1000,
                 "transportation": 800,
@@ -396,6 +401,7 @@ class NewNotificationTest(TestCase):
                 "paid": "Cash",
                 "amount": 13000,
                 "month": "Ashar",
+                "year": "2079",
                 "speechTherapy": 0,
                 "therapy": 4000,
                 "transportation": 800,
@@ -430,6 +436,7 @@ class NewNotificationTest(TestCase):
                 "paid": "Cash",
                 "amount": 13000,
                 "month": "Ashar",
+                "year": "2079",
                 "speechTherapy": 0,
                 "therapy": 4000,
                 "transportation": 800,
@@ -457,7 +464,7 @@ class NewTransactionTest(TestCase):
                 "payer": "Bond Alexander",
                 "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
                 "amount": 14000,
-                "mode": "credit",
+                "paid": "Cash",
             },
             content_type="application/json",
         )
@@ -475,7 +482,7 @@ class NewTransactionTest(TestCase):
             payer="Bond James",
             note="Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
             amount=14000,
-            mode="credit",
+            paid="Cash",
         )
         second_obj = TransactionModel.objects.create(
             transactionId="62D3F6C50221C0F7T5Y8BDBA",
@@ -485,7 +492,7 @@ class NewTransactionTest(TestCase):
             payer="Bond Alexander",
             note="Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
             amount=14000,
-            mode="credit",
+            paid="Cash",
         )
 
         response = self.client.get("/api/transaction/").json()
@@ -509,7 +516,7 @@ class NewTransactionTest(TestCase):
                 "payer": "Bond Alexander",
                 "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
                 "amount": 14000,
-                "mode": "credit",
+                "paid": "Cash",
             },
             content_type="application/json",
         )
@@ -519,7 +526,7 @@ class NewTransactionTest(TestCase):
             "/api/transaction/details/" + testTransactionId
         ).json()
         self.assertEqual(new_transaction["type"], "salary")
-        self.assertEqual(new_transaction["mode"], "credit")
+        self.assertEqual(new_transaction["paid"], "Cash")
 
     def test_can_update_data(self):
 
@@ -535,7 +542,7 @@ class NewTransactionTest(TestCase):
                 "payer": "Bond Alexander",
                 "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
                 "amount": 14000,
-                "mode": "credit",
+                "paid": "Cash",
             },
             content_type="application/json",
         )
@@ -551,7 +558,7 @@ class NewTransactionTest(TestCase):
                 "payer": "Bond Alexander",
                 "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
                 "amount": 12000,
-                "mode": "credit",
+                "paid": "Cash",
             },
             content_type="application/json",
         )
@@ -577,7 +584,7 @@ class NewTransactionTest(TestCase):
                 "payer": "Bond Alexander",
                 "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
                 "amount": 14000,
-                "mode": "credit",
+                "paid": "Cash",
             },
             content_type="application/json",
         )

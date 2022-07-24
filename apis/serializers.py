@@ -36,6 +36,7 @@ class NotificationSerializers(serializers.ModelSerializer):
             "date",
             "amount",
             "month",
+            "year",
             "speechTherapy",
             "therapy",
             "transportation",
@@ -58,5 +59,5 @@ class TransactionSerializers(serializers.ModelSerializer):
             "payer",
             "note",
             "amount",
-            "mode",
+            "paid",
         )
