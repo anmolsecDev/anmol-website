@@ -174,3 +174,8 @@ def transaction_detail(request, transactionId):
             {"message": "Transaction data was deleted successfully"},
             status=status.HTTP_204_NO_CONTENT,
         )
+
+
+@api_view(["GET"])
+def fee_status():
+    return JsonResponse(data={"status": "paid"})

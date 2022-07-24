@@ -7,6 +7,7 @@ from .views import (
     notification_detail,
     transaction_detail,
     transaction_list,
+    fee_status,
 )
 
 urlpatterns = [
@@ -19,5 +20,10 @@ urlpatterns = [
         name="notification_detail",
     ),
     path("transaction/", transaction_list, name="transaction_list"),
-    path("transaction/details/<str:transactionId>", transaction_detail, name="transaction_list"),
+    path(
+        "transaction/details/<str:transactionId>",
+        transaction_detail,
+        name="transaction_list",
+    ),
+    path("fee/status/<str:studentId>", fee_status, name="fee_status"),
 ]
