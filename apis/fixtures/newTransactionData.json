@@ -1,0 +1,145 @@
+[
+{
+    "model": "apis.transactionmodel",
+    "pk": "62D6A2A7398827FBC5772D0C",
+    "fields": {
+        "date": "2022/5/13",
+        "type": "Student",
+        "subType": "Fees",
+        "payer": "Stuart Contreras",
+        "note": "Culpa nulla nostrud ut labore laboris ad occaecat excepteur nostrud.",
+        "amount": 14000,
+        "paid": ""
+    }
+},
+{
+    "model": "apis.transactionmodel",
+    "pk": "62D6A3A720D1031636985F56",
+    "fields": {
+        "date": "2022/2/5",
+        "type": "Salary",
+        "subType": "Teacher",
+        "payer": "Barton Hobbs",
+        "note": "Mollit exercitation commodo magna commodo.",
+        "amount": 14000,
+        "paid": ""
+    }
+},
+{
+    "model": "apis.transactionmodel",
+    "pk": "62D6A3A725BAB556EDE94687",
+    "fields": {
+        "date": "2022/3/29",
+        "type": "Salary",
+        "subType": "Teacher",
+        "payer": "Foreman Castro",
+        "note": "Elit ullamco cillum sit pariatur magna.",
+        "amount": 14000,
+        "paid": ""
+    }
+},
+{
+    "model": "apis.transactionmodel",
+    "pk": "62D6A3A748BF2C9176A71514",
+    "fields": {
+        "date": "2022/8/4",
+        "type": "Student",
+        "subType": "Fees",
+        "payer": "Lloyd Richard",
+        "note": "Officia consequat laborum sint Lorem.",
+        "amount": 14000,
+        "paid": ""
+    }
+},
+{
+    "model": "apis.transactionmodel",
+    "pk": "62D6A3A74D1ED6F88E40FAD2",
+    "fields": {
+        "date": "2022/1/10",
+        "type": "Kitchen",
+        "subType": "Groceries",
+        "payer": "Downs Rojas",
+        "note": "Tea and coffee 10 kg",
+        "amount": 14000,
+        "paid": ""
+    }
+},
+{
+    "model": "apis.transactionmodel",
+    "pk": "62D6A3A7531CF8D688669D14",
+    "fields": {
+        "date": "2022/5/18",
+        "type": "Donations",
+        "subType": "Invidual",
+        "payer": "Kidd Cobb",
+        "note": "Sit nisi eiusmod deserunt ipsum aliquip deserunt ex officia.",
+        "amount": 14000,
+        "paid": ""
+    }
+},
+{
+    "model": "apis.transactionmodel",
+    "pk": "62D6A3A754EA3358E7EBA05F",
+    "fields": {
+        "date": "2022/10/11",
+        "type": "Student",
+        "subType": "Admission",
+        "payer": "Soto Petty",
+        "note": "Carlos Petty",
+        "amount": 14000,
+        "paid": ""
+    }
+},
+{
+    "model": "apis.transactionmodel",
+    "pk": "62D6A3A76491F3A779DD199E",
+    "fields": {
+        "date": "2022/7/21",
+        "type": "Admission",
+        "subType": "Student",
+        "payer": "Mckinney George",
+        "note": "Consequat laborum esse qui proident consequat incididunt proident veniam magna qui.",
+        "amount": 14000,
+        "paid": ""
+    }
+},
+{
+    "model": "apis.transactionmodel",
+    "pk": "62D6A3A7A7495E90B8F28859",
+    "fields": {
+        "date": "2022/10/29",
+        "type": "Admission",
+        "subType": "Student",
+        "payer": "Nona Sherman",
+        "note": "Elit non qui incididunt veniam ut et non aliqua culpa proident.",
+        "amount": 14000,
+        "paid": ""
+    }
+},
+{
+    "model": "apis.transactionmodel",
+    "pk": "62D6A3A7BB9B702889B95826",
+    "fields": {
+        "date": "2022/10/22",
+        "type": "Salary",
+        "subType": "Teacher",
+        "payer": "Melissa Lara",
+        "note": "Ullamco cillum laborum ad officia Lorem consectetur Lorem veniam ipsum commodo Lorem quis.",
+        "amount": 14000,
+        "paid": ""
+    }
+},
+{
+    "model": "apis.transactionmodel",
+    "pk": "RXUBUNDC7GF9B74SPGZ5LO68",
+    "fields": {
+        "date": "2022-07-06",
+        "type": "Supplies",
+        "subType": "Toys",
+        "payer": "me",
+        "note": "Donated for her",
+        "amount": 56666,
+        "paid": ""
+    }
+}
+]
