@@ -74,7 +74,7 @@ class TransactionSerializers(serializers.ModelSerializer):
 class AccountModelSerializers(serializers.ModelSerializer):
     class Meta:
         model = AccountModel
-        fields = ("accountId", "name", "currBalance", "bankName", "currLoan")
+        fields = ("accountId", "currBalance", "bankName", "currLoan")
 
 
 class AssetsModelSerializers(serializers.ModelSerializer):
