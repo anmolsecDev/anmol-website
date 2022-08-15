@@ -80,7 +80,7 @@ class AccountModelSerializers(serializers.ModelSerializer):
 class AssetsModelSerializers(serializers.ModelSerializer):
     class Meta:
         model = Assets
-        fields = ("cashBalance", "ptCash", "accountRecievable")
+        fields = ("cashBalance", "ptCash", "accountReceivable")
 
 
 class LiabilitiesModelSerializers(serializers.ModelSerializer):
