@@ -24,6 +24,66 @@ from rest_framework.decorators import api_view
 import nepali_datetime
 
 
+def transaction_maintainer(transaction_id):
+    stored_transaction = TransactionModel.objects.all().filter(
+        transactionId__icontains=transaction_id
+    )[0]
+    amount = int(stored_transaction.amount)
+    paidFrom = stored_transaction.paidFrom
+    paidTo = stored_transaction.paidTo
+    mode = stored_transaction.mode
+    asset = Assets.objects.first()
+    liability = Liabilities.objects.first()
+    match paidFrom:
+        case "P.T. Cash":
+            asset.ptCash -= amount
+        case "Cash Balance":
+            asset.cashBalance -= amount
+        case "Borrowing Archana Rimal":
+            liability.borrowingArchanaRimal += amount
+        case "Borrowing Sangeeta Neupane":
+            liability.borrowingSangeetaNeupane += amount
+        case "Borrowing Others":
+            liability.borrowingOthers += amount
+        # BANK PAY LEFT
+
+    match paidTo:
+        case "P.T. Cash":
+            asset.ptCash += amount
+        case "Cash Balance":
+            asset.cashBalance += amount
+
+        case "Borrowing Archana Rimal":
+            liability.borrowingArchanaRimal -= amount
+
+        case "Borrowing Sangeeta Neupane":
+            liability.borrowingSangeetaNeupane -= amount
+        case "Borrowing Others":
+            liability.borrowingOthers -= amount
+
+        # Bank Left
+    match mode:
+        case "Account Receivable(DO)":
+            asset.accountReceivable += amount
+        case "Account Receivable(DONE)":
+            asset.accountReceivable -= amount
+        case "Salary Payable(DO)":
+            liability.salaryPayable += amount
+        case "Salary Payable(DONE)":
+            liability.salaryPayable -= amount
+        case "Audit Fee Payable(DO)":
+            liability.auditFeePayable += amount
+        case "Audit Fee Payable(DONE)":
+            liability.auditFeePayable -= amount
+        case "Other Payable(DO)":
+            liability.otherPayable += amount
+        case "Other Payable(DONE)":
+            liability.otherPayable -= amount
+
+    asset.save()
+    liability.save()
+
+
 @api_view(["GET", "POST"])
 def student_list(request):
     if request.method == "GET":
@@ -141,9 +201,12 @@ def transaction_list(request):
 
     elif request.method == "POST":
         transaction_data = JSONParser().parse(request)
+
         transaction_serializer = TransactionSerializers(data=transaction_data)
         if transaction_serializer.is_valid():
+            transaction_id = transaction_data["transactionId"]
             transaction_serializer.save()
+            transaction_maintainer(transaction_id)
             return JsonResponse(
                 transaction_serializer.data, status=status.HTTP_201_CREATED
             )

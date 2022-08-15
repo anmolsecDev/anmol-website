@@ -66,14 +66,13 @@ class TransactionModel(models.Model):
 
 
 class AccountModel(models.Model):
-    accountId = models.CharField(max_length=10, default="", primary_key=True)
-    name = models.CharField(max_length=300, default="")
+    accountId = models.CharField(max_length=30, default="", primary_key=True)
     currBalance = models.IntegerField(default=0)
     currLoan = models.IntegerField(default=0)
     bankName = models.CharField(max_length=200, default="")
 
     def __str__(self):
-        return str(self.name)
+        return str(self.bankName + " " + "Acc No. " + self.accountId)
 
 
 class Assets(models.Model):

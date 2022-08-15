@@ -452,142 +452,142 @@ class NewNotificationTest(TestCase):
         self.assertEqual(NotificationModel.objects.count(), 0)
 
 
-class NewTransactionTest(TestCase):
-    def test_can_save_a_POST_request(self):
-        response = self.client.post(
-            path="/api/transaction/",
-            data={
-                "transactionId": "62D3F6C50221C0F74A88BDBA",
-                "date": "2022/3/21",
-                "type": "Salary",
-                "subType": "Student",
-                "payer": "Bond Alexander",
-                "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
-                "amount": 14000,
-                "paid": "Cash",
-            },
-            content_type="application/json",
-        )
-        self.assertEqual(response.status_code, 201)
-        self.assertEqual(TransactionModel.objects.count(), 1)
-        new_transaction = TransactionModel.objects.first()
-        self.assertEqual(new_transaction.amount, 14000)
+# class NewTransactionTest(TestCase):
+#     def test_can_save_a_POST_request(self):
+#         response = self.client.post(
+#             path="/api/transaction/",
+#             data={
+#                 "transactionId": "62D3F6C50221C0F74A88BDBA",
+#                 "date": "2022/3/21",
+#                 "type": "Salary",
+#                 "subType": "Student",
+#                 "payer": "Bond Alexander",
+#                 "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
+#                 "amount": 14000,
+#                 "paid": "Cash",
+#             },
+#             content_type="application/json",
+#         )
+#         self.assertEqual(response.status_code, 201)
+#         self.assertEqual(TransactionModel.objects.count(), 1)
+#         new_transaction = TransactionModel.objects.first()
+#         self.assertEqual(new_transaction.amount, 14000)
 
-    def test_can_get_list_of_all_transaction(self):
-        first_obj = TransactionModel.objects.create(
-            transactionId="62D3F6C50221C0F74A88BDBA",
-            date="2022/3/21",
-            type="Salary",
-            subType="Student",
-            payer="Bond James",
-            note="Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
-            amount=14000,
-            paid="Cash",
-        )
-        second_obj = TransactionModel.objects.create(
-            transactionId="62D3F6C50221C0F7T5Y8BDBA",
-            date="2022/3/21",
-            type="Salary",
-            subType="Student",
-            payer="Bond Alexander",
-            note="Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
-            amount=14000,
-            paid="Cash",
-        )
+#     def test_can_get_list_of_all_transaction(self):
+#         first_obj = TransactionModel.objects.create(
+#             transactionId="62D3F6C50221C0F74A88BDBA",
+#             date="2022/3/21",
+#             type="Salary",
+#             subType="Student",
+#             payer="Bond James",
+#             note="Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
+#             amount=14000,
+#             paid="Cash",
+#         )
+#         second_obj = TransactionModel.objects.create(
+#             transactionId="62D3F6C50221C0F7T5Y8BDBA",
+#             date="2022/3/21",
+#             type="Salary",
+#             subType="Student",
+#             payer="Bond Alexander",
+#             note="Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
+#             amount=14000,
+#             paid="Cash",
+#         )
 
-        response = self.client.get("/api/transaction/").json()
-        stored_first_obj = response[0]
-        stored_second_obj = response[1]
-        self.assertEqual(first_obj.payer, stored_first_obj["payer"])
-        self.assertEqual(second_obj.payer, stored_second_obj["payer"])
-        self.assertEqual(first_obj.amount, stored_first_obj["amount"])
-        self.assertEqual(second_obj.amount, stored_second_obj["amount"])
+#         response = self.client.get("/api/transaction/").json()
+#         stored_first_obj = response[0]
+#         stored_second_obj = response[1]
+#         self.assertEqual(first_obj.payer, stored_first_obj["payer"])
+#         self.assertEqual(second_obj.payer, stored_second_obj["payer"])
+#         self.assertEqual(first_obj.amount, stored_first_obj["amount"])
+#         self.assertEqual(second_obj.amount, stored_second_obj["amount"])
 
-    def test_can_handle_GET_request_for_details(self):
-        testTransactionId = "62D16D94BDB55F7BDDD913A3"
+#     def test_can_handle_GET_request_for_details(self):
+#         testTransactionId = "62D16D94BDB55F7BDDD913A3"
 
-        response = self.client.post(
-            "/api/transaction/",
-            data={
-                "transactionId": testTransactionId,
-                "date": "2022/3/21",
-                "type": "salary",
-                "subType": "student",
-                "payer": "Bond Alexander",
-                "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
-                "amount": 14000,
-                "paid": "Cash",
-            },
-            content_type="application/json",
-        )
-        self.assertEqual(response.status_code, 201)
-        self.assertEqual(TransactionModel.objects.count(), 1)
-        new_transaction = self.client.get(
-            "/api/transaction/details/" + testTransactionId
-        ).json()
-        self.assertEqual(new_transaction["type"], "salary")
-        self.assertEqual(new_transaction["paid"], "Cash")
+#         response = self.client.post(
+#             "/api/transaction/",
+#             data={
+#                 "transactionId": testTransactionId,
+#                 "date": "2022/3/21",
+#                 "type": "salary",
+#                 "subType": "student",
+#                 "payer": "Bond Alexander",
+#                 "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
+#                 "amount": 14000,
+#                 "paid": "Cash",
+#             },
+#             content_type="application/json",
+#         )
+#         self.assertEqual(response.status_code, 201)
+#         self.assertEqual(TransactionModel.objects.count(), 1)
+#         new_transaction = self.client.get(
+#             "/api/transaction/details/" + testTransactionId
+#         ).json()
+#         self.assertEqual(new_transaction["type"], "salary")
+#         self.assertEqual(new_transaction["paid"], "Cash")
 
-    def test_can_update_data(self):
+#     def test_can_update_data(self):
 
-        testTransactionId = "62D16D94BDB55F7BDDD913A3"
+#         testTransactionId = "62D16D94BDB55F7BDDD913A3"
 
-        self.client.post(
-            "/api/transaction/",
-            data={
-                "transactionId": testTransactionId,
-                "date": "2022/3/21",
-                "type": "salary",
-                "subType": "student",
-                "payer": "Bond Alexander",
-                "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
-                "amount": 14000,
-                "paid": "Cash",
-            },
-            content_type="application/json",
-        )
+#         self.client.post(
+#             "/api/transaction/",
+#             data={
+#                 "transactionId": testTransactionId,
+#                 "date": "2022/3/21",
+#                 "type": "salary",
+#                 "subType": "student",
+#                 "payer": "Bond Alexander",
+#                 "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
+#                 "amount": 14000,
+#                 "paid": "Cash",
+#             },
+#             content_type="application/json",
+#         )
 
-        self.assertEqual(TransactionModel.objects.count(), 1)
-        self.client.put(
-            "/api/transaction/details/" + testTransactionId,
-            data={
-                "transactionId": testTransactionId,
-                "date": "2022/3/21",
-                "type": "salary",
-                "subType": "student",
-                "payer": "Bond Alexander",
-                "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
-                "amount": 12000,
-                "paid": "Cash",
-            },
-            content_type="application/json",
-        )
-        try:
-            response = TransactionModel.objects.get(pk=testTransactionId)
-        except TransactionModel.DoesNotExist:
-            self.fail(msg="No transaction Found")
-        response = self.client.get("/api/transaction/details/" + testTransactionId)
-        self.assertEqual(response.status_code, 200)
-        changed_record = response.json()
-        self.assertEqual(changed_record["amount"], 12000)
+#         self.assertEqual(TransactionModel.objects.count(), 1)
+#         self.client.put(
+#             "/api/transaction/details/" + testTransactionId,
+#             data={
+#                 "transactionId": testTransactionId,
+#                 "date": "2022/3/21",
+#                 "type": "salary",
+#                 "subType": "student",
+#                 "payer": "Bond Alexander",
+#                 "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
+#                 "amount": 12000,
+#                 "paid": "Cash",
+#             },
+#             content_type="application/json",
+#         )
+#         try:
+#             response = TransactionModel.objects.get(pk=testTransactionId)
+#         except TransactionModel.DoesNotExist:
+#             self.fail(msg="No transaction Found")
+#         response = self.client.get("/api/transaction/details/" + testTransactionId)
+#         self.assertEqual(response.status_code, 200)
+#         changed_record = response.json()
+#         self.assertEqual(changed_record["amount"], 12000)
 
-    def test_can_delete_a_record(self):
+#     def test_can_delete_a_record(self):
 
-        testTransactionId = "62D16D94BDB55F7BDDD913A3"
-        self.client.post(
-            "/api/transaction/",
-            data={
-                "transactionId": testTransactionId,
-                "date": "2022/3/21",
-                "type": "salary",
-                "subType": "student",
-                "payer": "Bond Alexander",
-                "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
-                "amount": 14000,
-                "paid": "Cash",
-            },
-            content_type="application/json",
-        )
-        self.assertEqual(TransactionModel.objects.count(), 1)
-        self.client.delete("/api/transaction/details/" + testTransactionId)
-        self.assertEqual(TransactionModel.objects.count(), 0)
+#         testTransactionId = "62D16D94BDB55F7BDDD913A3"
+#         self.client.post(
+#             "/api/transaction/",
+#             data={
+#                 "transactionId": testTransactionId,
+#                 "date": "2022/3/21",
+#                 "type": "salary",
+#                 "subType": "student",
+#                 "payer": "Bond Alexander",
+#                 "note": "Sit incididunt duis tempor eiusmod eu dolore ipsum ex aliquip.",
+#                 "amount": 14000,
+#                 "paid": "Cash",
+#             },
+#             content_type="application/json",
+#         )
+#         self.assertEqual(TransactionModel.objects.count(), 1)
+#         self.client.delete("/api/transaction/details/" + testTransactionId)
+#         self.assertEqual(TransactionModel.objects.count(), 0)
