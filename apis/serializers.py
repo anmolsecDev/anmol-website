@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import StudentModel, NotificationModel, TransactionModel
+from .models import StudentModel, NotificationModel, TransactionModel, AccountModel
 
 
 class StudentSerializers(serializers.ModelSerializer):
@@ -61,3 +61,9 @@ class TransactionSerializers(serializers.ModelSerializer):
             "amount",
             "paid",
         )
+
+
+class AccountModelSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = AccountModel
+        fields = ("accountId", "name", "currBalance", "bankName", "currLoan")

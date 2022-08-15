@@ -11,6 +11,12 @@ from apis.serializers import TransactionSerializers
 from apis.models import NotificationModel
 from apis.serializers import NotificationSerializers
 
+from apis.models import AccountModel
+from apis.serializers import AccountModelSerializers
+
+from apis.models import Assets
+from apis.models import Liabilities
+
 from rest_framework.decorators import api_view
 import nepali_datetime
 
@@ -138,7 +144,6 @@ def transaction_list(request):
             return JsonResponse(
                 transaction_serializer.data, status=status.HTTP_201_CREATED
             )
-        print(transaction_serializer.errors)
         return JsonResponse(
             transaction_serializer.errors, status=status.HTTP_400_BAD_REQUEST
         )
@@ -209,4 +214,22 @@ def fee_status(request, studentId):
     else:
         return JsonResponse(
             {"message": "StudentId not valid"}, status=status.HTTP_404_NOT_FOUND
+        )
+
+
+@api_view(["GET"])
+def account_list(request):
+    if request.method == "GET":
+        accounts = AccountModel.objects.all()
+        account_serializer = AccountModelSerializers(accounts, many=True)
+        return JsonResponse(account_serializer.data, safe=False)
+
+    if request.method == "POST":
+        account_data = JSONParser().parse(request)
+        account_serializer = AccountModelSerializers(data=account_data)
+        if account_serializer.is_valid():
+            account_serializer.save()
+            return JsonResponse(account_serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse(
+            account_serializer.errors, status=status.HTTP_400_BAD_REQUEST
         )
