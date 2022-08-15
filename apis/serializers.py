@@ -55,11 +55,12 @@ class TransactionSerializers(serializers.ModelSerializer):
             "transactionId",
             "date",
             "type",
-            "subType",
+            "paidTo",
+            "paidFrom",
+            "mode",
             "payer",
             "note",
             "amount",
-            "paid",
         )
 
 
