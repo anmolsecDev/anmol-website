@@ -247,6 +247,6 @@ def asset_list(request):
 
 @api_view(["GET"])
 def liability_list(request):
-    liability = Assets.objects.all()
+    liability = Liabilities.objects.all()
     liability_serializer = LiabilitiesModelSerializers(liability, many=True)
     return JsonResponse(liability_serializer.data, safe=False)
