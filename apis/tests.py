@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import NotificationModel, StudentModel, TransactionModel
+from .models import NotificationModel, StudentModel
 
 # Create your tests here.
 

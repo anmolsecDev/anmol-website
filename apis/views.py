@@ -34,51 +34,48 @@ def transaction_maintainer(transaction_id):
     mode = stored_transaction.mode
     asset = Assets.objects.first()
     liability = Liabilities.objects.first()
-    match paidFrom:
-        case "P.T. Cash":
-            asset.ptCash -= amount
-        case "Cash Balance":
-            asset.cashBalance -= amount
-        case "Borrowing Archana Rimal":
-            liability.borrowingArchanaRimal += amount
-        case "Borrowing Sangeeta Neupane":
-            liability.borrowingSangeetaNeupane += amount
-        case "Borrowing Others":
-            liability.borrowingOthers += amount
+
+    if paidFrom == "P.T. Cash":
+        asset.ptCash -= amount
+    elif paidFrom == "Cash Balance":
+        asset.cashBalance -= amount
+    elif paidFrom == "Borrowing Archana Rimal":
+        liability.borrowingArchanaRimal += amount
+    elif paidFrom == "Borrowing Sangeeta Neupane":
+        liability.borrowingSangeetaNeupane += amount
+    elif paidFrom == "Borrowing Others":
+        liability.borrowingOthers += amount
         # BANK PAY LEFT
 
-    match paidTo:
-        case "P.T. Cash":
-            asset.ptCash += amount
-        case "Cash Balance":
-            asset.cashBalance += amount
-
-        case "Borrowing Archana Rimal":
-            liability.borrowingArchanaRimal -= amount
-
-        case "Borrowing Sangeeta Neupane":
-            liability.borrowingSangeetaNeupane -= amount
-        case "Borrowing Others":
-            liability.borrowingOthers -= amount
+    if paidTo == "P.T. Cash":
+        asset.ptCash += amount
+    elif paidTo == "Cash Balance":
+        asset.cashBalance += amount
+    elif paidTo == "Borrowing Archana Rimal":
+        liability.borrowingArchanaRimal -= amount
+    elif paidTo == "Borrowing Sangeeta Neupane":
+        liability.borrowingSangeetaNeupane -= amount
+    elif paidTo == "Borrowing Others":
+        liability.borrowingOthers -= amount
 
         # Bank Left
-    match mode:
-        case "Account Receivable(DO)":
-            asset.accountReceivable += amount
-        case "Account Receivable(DONE)":
-            asset.accountReceivable -= amount
-        case "Salary Payable(DO)":
-            liability.salaryPayable += amount
-        case "Salary Payable(DONE)":
-            liability.salaryPayable -= amount
-        case "Audit Fee Payable(DO)":
-            liability.auditFeePayable += amount
-        case "Audit Fee Payable(DONE)":
-            liability.auditFeePayable -= amount
-        case "Other Payable(DO)":
-            liability.otherPayable += amount
-        case "Other Payable(DONE)":
-            liability.otherPayable -= amount
+
+    if mode == "Account Receivable(DO)":
+        asset.accountReceivable += amount
+    elif mode == "Account Receivable(DONE)":
+        asset.accountReceivable -= amount
+    elif mode == "Salary Payable(DO)":
+        liability.salaryPayable += amount
+    elif mode == "Salary Payable(DONE)":
+        liability.salaryPayable -= amount
+    elif mode == "Audit Fee Payable(DO)":
+        liability.auditFeePayable += amount
+    elif mode == "Audit Fee Payable(DONE)":
+        liability.auditFeePayable -= amount
+    elif mode == "Other Payable(DO)":
+        liability.otherPayable += amount
+    elif mode == "Other Payable(DONE)":
+        liability.otherPayable -= amount
 
     asset.save()
     liability.save()
