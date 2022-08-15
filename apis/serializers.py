@@ -1,6 +1,13 @@
 from rest_framework import serializers
 
-from .models import StudentModel, NotificationModel, TransactionModel, AccountModel
+from .models import (
+    Assets,
+    Liabilities,
+    StudentModel,
+    NotificationModel,
+    TransactionModel,
+    AccountModel,
+)
 
 
 class StudentSerializers(serializers.ModelSerializer):
@@ -68,3 +75,28 @@ class AccountModelSerializers(serializers.ModelSerializer):
     class Meta:
         model = AccountModel
         fields = ("accountId", "name", "currBalance", "bankName", "currLoan")
+
+
+class AssetsModelSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Assets
+        fields = ("cashBalance", "ptCash", "accountRecievable")
+
+
+class LiabilitiesModelSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Liabilities
+        fields = (
+            "shareCapitalArchana",
+            "shareCapitalSangita",
+            "borrowingLoanBank",
+            "borrowingArchanaRimal",
+            "borrowingSangeetaNeupane",
+            "borrowingOthers",
+            "socialSecurityTax",
+            "salaryTax",
+            "salaryPayable",
+            "auditFeePayable",
+            "otherPayable",
+            "capitalReserveOrDeficit",
+        )

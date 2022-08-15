@@ -15,7 +15,10 @@ from apis.models import AccountModel
 from apis.serializers import AccountModelSerializers
 
 from apis.models import Assets
+from apis.serializers import AssetsModelSerializers
+
 from apis.models import Liabilities
+from apis.serializers import LiabilitiesModelSerializers
 
 from rest_framework.decorators import api_view
 import nepali_datetime
@@ -233,3 +236,17 @@ def account_list(request):
         return JsonResponse(
             account_serializer.errors, status=status.HTTP_400_BAD_REQUEST
         )
+
+
+@api_view(["GET"])
+def asset_list(request):
+    asset = Assets.objects.first()
+    assets_serializer = AssetsModelSerializers(asset, many=True)
+    return JsonResponse(assets_serializer.data, safe=False)
+
+
+@api_view(["GET"])
+def liability_list(request):
+    liability = Assets.objects.first()
+    liability_serializer = LiabilitiesModelSerializers(liability, many=True)
+    return JsonResponse(liability_serializer.data, safe=False)

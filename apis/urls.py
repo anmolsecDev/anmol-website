@@ -9,6 +9,8 @@ from .views import (
     transaction_list,
     fee_status,
     account_list,
+    asset_list,
+    liability_list,
 )
 
 urlpatterns = [
@@ -28,4 +30,6 @@ urlpatterns = [
     ),
     path("fee/status/<str:studentId>", fee_status, name="fee_status"),
     path("account", account_list, name="account_list"),
+    path("assets", asset_list, name="asset_list"),
+    path("liability", liability_list, name="liability_list"),
 ]
