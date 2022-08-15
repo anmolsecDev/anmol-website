@@ -240,13 +240,13 @@ def account_list(request):
 
 @api_view(["GET"])
 def asset_list(request):
-    asset = Assets.objects.first()
+    asset = Assets.objects.all()
     assets_serializer = AssetsModelSerializers(asset, many=True)
     return JsonResponse(assets_serializer.data, safe=False)
 
 
 @api_view(["GET"])
 def liability_list(request):
-    liability = Assets.objects.first()
+    liability = Assets.objects.all()
     liability_serializer = LiabilitiesModelSerializers(liability, many=True)
     return JsonResponse(liability_serializer.data, safe=False)
