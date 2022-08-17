@@ -334,3 +334,13 @@ def trial_balance_list(request):
         return JsonResponse(
             trialBalance_serializer.errors, status=status.HTTP_400_BAD_REQUEST
         )
+
+
+@api_view(["GET"])
+def trial_balance_create(request):
+    newtb = TrialBalanceModel.objects.create(trailBalanceId="dsnj8n22dfdaasdffcekdn")
+    newtb.year = 2079
+    newtb.month = 8
+    newtb.save()
+    newtb_serializer = TrialBalanceModelSerializers(newtb)
+    return JsonResponse(newtb_serializer.data)

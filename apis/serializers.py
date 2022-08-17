@@ -7,6 +7,7 @@ from .models import (
     NotificationModel,
     TransactionModel,
     AccountModel,
+    TrialBalanceModel,
 )
 
 
@@ -113,4 +114,5 @@ class LiabilitiesModelSerializers(serializers.ModelSerializer):
 
 class TrialBalanceModelSerializers(serializers.ModelSerializer):
     class Meta:
+        model = TrialBalanceModel
         fields = "__all__"

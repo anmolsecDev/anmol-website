@@ -102,6 +102,9 @@ class Liabilities(models.Model):
 
 
 class TrialBalanceModel(models.Model):
+    trailBalanceId = models.CharField(max_length=50, default=0, primary_key=True)
+    year = models.IntegerField(default=0)
+    month = models.IntegerField(default=0)
     admissionForm = models.IntegerField(default=0)
     admission = models.IntegerField(default=0)
     annualCharge = models.IntegerField(default=0)
