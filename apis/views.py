@@ -20,6 +20,9 @@ from apis.serializers import AssetsModelSerializers
 from apis.models import Liabilities
 from apis.serializers import LiabilitiesModelSerializers
 
+from apis.models import TrialBalanceModel
+from apis.serializers import TrialBalanceModelSerializers
+
 from rest_framework.decorators import api_view
 import nepali_datetime
 
@@ -310,3 +313,24 @@ def liability_list(request):
     liability = Liabilities.objects.all()
     liability_serializer = LiabilitiesModelSerializers(liability, many=True)
     return JsonResponse(liability_serializer.data, safe=False)
+
+
+@api_view(["GET", "POST"])
+def trial_balance_list(request):
+    if request.method == "GET":
+        trialBalances = TrialBalanceModel.objects.all()
+        trialBalance_serializer = TrialBalanceModelSerializers(trialBalances, many=True)
+        return JsonResponse(trialBalance_serializer.data, safe=False)
+
+    elif request.method == "POST":
+        trialBalance_data = JSONParser().parse(request)
+
+        trialBalance_serializer = TrialBalanceModelSerializers(data=trialBalance_data)
+        if trialBalance_serializer.is_valid():
+            trialBalance_serializer.save()
+            return JsonResponse(
+                trialBalance_serializer.data, status=status.HTTP_201_CREATED
+            )
+        return JsonResponse(
+            trialBalance_serializer.errors, status=status.HTTP_400_BAD_REQUEST
+        )

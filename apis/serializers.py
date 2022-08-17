@@ -109,3 +109,8 @@ class LiabilitiesModelSerializers(serializers.ModelSerializer):
             "otherPayable",
             "capitalReserveOrDeficit",
         )
+
+
+class TrialBalanceModelSerializers(serializers.ModelSerializer):
+    class Meta:
+        fields = "__all__"

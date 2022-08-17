@@ -11,6 +11,7 @@ from .views import (
     account_list,
     asset_list,
     liability_list,
+    trial_balance_list,
 )
 
 urlpatterns = [
@@ -32,4 +33,5 @@ urlpatterns = [
     path("account", account_list, name="account_list"),
     path("assets", asset_list, name="asset_list"),
     path("liability", liability_list, name="liability_list"),
+    path("trialbalance", trial_balance_list, name="trialbalance"),
 ]

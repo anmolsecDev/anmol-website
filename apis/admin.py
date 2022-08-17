@@ -6,6 +6,7 @@ from .models import (
     AccountModel,
     Assets,
     Liabilities,
+    TrialBalanceModel,
 )
 
 # Register your models here.
@@ -16,3 +17,4 @@ admin.site.register(TransactionModel)
 admin.site.register(AccountModel)
 admin.site.register(Assets)
 admin.site.register(Liabilities)
+admin.site.register(TrialBalanceModel)
