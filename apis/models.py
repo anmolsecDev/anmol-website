@@ -59,7 +59,7 @@ class TransactionModel(models.Model):
     payer = models.CharField(default="", max_length=50)
     note = models.CharField(default="", max_length=200)
     amount = models.IntegerField(default=0)
-    mode = models.CharField(default="", max_length=10)
+    mode = models.CharField(default="", max_length=100)
 
     def __str__(self):
         return str(self.transactionId)
@@ -79,6 +79,11 @@ class Assets(models.Model):
     cashBalance = models.IntegerField(default=0)
     ptCash = models.IntegerField(default=0)
     accountReceivable = models.IntegerField(default=0)
+    land = models.IntegerField(default=0)
+    building = models.IntegerField(default=0)
+    furniture = models.IntegerField(default=0)
+    computer = models.IntegerField(default=0)
+    vehicles = models.IntegerField(default=0)
 
 
 class Liabilities(models.Model):
