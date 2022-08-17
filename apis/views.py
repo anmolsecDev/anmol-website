@@ -60,21 +60,21 @@ def transaction_maintainer(transaction_id):
 
         # Bank Left
 
-    if mode == "Account Receivable(DO)":
+    if mode == "Account Receivable[DO]":
         asset.accountReceivable += amount
-    elif mode == "Account Receivable(DONE)":
+    elif mode == "Account Receivable[DONE]":
         asset.accountReceivable -= amount
-    elif mode == "Salary Payable(DO)":
+    elif mode == "Salary Payable[DO]":
         liability.salaryPayable += amount
-    elif mode == "Salary Payable(DONE)":
+    elif mode == "Salary Payable[DONE]":
         liability.salaryPayable -= amount
-    elif mode == "Audit Fee Payable(DO)":
+    elif mode == "Audit Fee Payable[DO]":
         liability.auditFeePayable += amount
-    elif mode == "Audit Fee Payable(DONE)":
+    elif mode == "Audit Fee Payable[DONE]":
         liability.auditFeePayable -= amount
-    elif mode == "Other Payable(DO)":
+    elif mode == "Other Payable[DO]":
         liability.otherPayable += amount
-    elif mode == "Other Payable(DONE)":
+    elif mode == "Other Payable[DONE]":
         liability.otherPayable -= amount
 
     asset.save()
